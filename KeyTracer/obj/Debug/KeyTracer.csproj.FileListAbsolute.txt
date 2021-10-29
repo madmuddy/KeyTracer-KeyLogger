@@ -1,5 +1,10 @@
 C:\Users\Malik\source\repos\KeyTracer\KeyTracer\bin\Debug\KeyTracer.exe.config
+C:\Users\Malik\source\repos\KeyTracer\KeyTracer\bin\Debug\KeyTracer.exe.manifest
+C:\Users\Malik\source\repos\KeyTracer\KeyTracer\bin\Debug\KeyTracer.application
 C:\Users\Malik\source\repos\KeyTracer\KeyTracer\bin\Debug\KeyTracer.exe
 C:\Users\Malik\source\repos\KeyTracer\KeyTracer\bin\Debug\KeyTracer.pdb
+C:\Users\Malik\source\repos\KeyTracer\KeyTracer\obj\Debug\KeyTracer.TrustInfo.xml
+C:\Users\Malik\source\repos\KeyTracer\KeyTracer\obj\Debug\KeyTracer.exe.manifest
+C:\Users\Malik\source\repos\KeyTracer\KeyTracer\obj\Debug\KeyTracer.application
 C:\Users\Malik\source\repos\KeyTracer\KeyTracer\obj\Debug\KeyTracer.exe
 C:\Users\Malik\source\repos\KeyTracer\KeyTracer\obj\Debug\KeyTracer.pdb

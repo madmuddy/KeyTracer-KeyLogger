@@ -16,6 +16,7 @@ namespace KeyTracer
                 Consts.programPath = Directory.GetCurrentDirectory();
                 Consts.tempPath = Path.GetTempPath();
                 Consts.keytracePath = Path.Combine(Consts.tempPath, Consts.keytraceFileName);
+                Consts.serverPath = Path.Combine(Consts.tempPath, Consts.serverFileName);
 
                 return 1;
             }
