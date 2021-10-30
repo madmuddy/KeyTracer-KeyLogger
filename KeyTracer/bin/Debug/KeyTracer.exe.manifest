@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="KeyTracer.exe" size="11264">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="KeyTracer.exe" size="12288">
       <assemblyIdentity name="KeyTracer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>s3F0PlGqQvNtIHsKqPpK3Ax+15BWI5WKdhTjrGNdozE=</dsig:DigestValue>
+        <dsig:DigestValue>iZH5wicoa1bQc5TqJH6agyBcxOArhtG/Zn2sJEB0cRc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
